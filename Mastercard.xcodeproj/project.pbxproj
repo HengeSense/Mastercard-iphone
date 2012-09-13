@@ -108,8 +108,16 @@
 		30E1352610E2C1420031B30D /* Cordova.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Cordova.plist; path = ../Cordova.plist; sourceTree = "<group>"; };
 		30E5649113A7FCAF007403D8 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		32CA4F630368D1EE00C91783 /* Mastercard-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Mastercard-Prefix.pch"; sourceTree = "<group>"; };
+		414CEB1F15EF54830054D9D3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		414CEB2115EF54870054D9D3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		414CEB2315EF54D20054D9D3 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		414CEB2515EF54D60054D9D3 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
+		414CEB2715EF564A0054D9D3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		414CEB2915EF56630054D9D3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		41508F6C15EC3A12006103E4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		41508F6E15EC3A16006103E4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		415A18F815EF5C6F006E00DC /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		415A18FA15EF5C89006E00DC /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Mastercard-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Mastercard-Info.plist"; path = "../Mastercard-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,6 +187,14 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				415A18FA15EF5C89006E00DC /* Default-Landscape@2x~ipad.png */,
+				415A18F815EF5C6F006E00DC /* Default-Landscape~ipad.png */,
+				414CEB2915EF56630054D9D3 /* Default@2x.png */,
+				414CEB2715EF564A0054D9D3 /* Default.png */,
+				414CEB2515EF54D60054D9D3 /* Default-Portrait@2x~ipad.png */,
+				414CEB2315EF54D20054D9D3 /* Default-Portrait~ipad.png */,
+				414CEB2115EF54870054D9D3 /* Default@2x.png */,
+				414CEB1F15EF54830054D9D3 /* Default.png */,
 				41508F6E15EC3A16006103E4 /* Default@2x.png */,
 				41508F6C15EC3A12006103E4 /* Default.png */,
 				301BF56E109A69640062928A /* www */,
@@ -322,7 +338,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0440;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Mastercard" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -486,7 +502,7 @@
 				GCC_PREFIX_HEADER = "Mastercard/Mastercard-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Mastercard/Mastercard-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = Mastercard;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -501,7 +517,7 @@
 				GCC_PREFIX_HEADER = "Mastercard/Mastercard-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Mastercard/Mastercard-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = Mastercard;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

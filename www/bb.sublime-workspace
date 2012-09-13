@@ -5,44 +5,66 @@
 		[
 			[
 				"ne",
-				"networkAvailable"
+				"isNetworkAvailable"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"contents": "document.addEventListener(\"deviceready\", onDeviceReady, false);\n\nfunction onDeviceReady() {\n	checkConnection()\n	blackberry.system.event.onHardwareKey(blackberry.system.event.KEY_BACK,\n		function() {\n			if ($.mobile.activePage.attr('id') == 'main') {\n				navigator.app.exitApp();\n			} else {\n				history.back();\n				return false;\n			}\n		});\n}\n\nfunction checkConnection() {\n    var networkState = navigator.network.connection.type;\n\n    var states = {};\n    states[Connection.UNKNOWN]  = 'Unknown connection';\n    states[Connection.ETHERNET] = 'Ethernet connection';\n    states[Connection.WIFI]     = 'WiFi connection';\n    states[Connection.CELL_2G]  = 'Cell 2G connection';\n    states[Connection.CELL_3G]  = 'Cell 3G connection';\n    states[Connection.CELL_4G]  = 'Cell 4G connection';\n    states[Connection.NONE]     = 'No network connection';\n\n    //alert('Connection type: ' + states[networkState]);\n    if(networkState == Connection.NONE) {\n    	var db = window.openDatabase(\"mastercard_db\", \"1.0\", \"Mastercard Database\", 20000);\n    	db.transaction(function(tx) {\n			tx.executeSql(\"SELECT * FROM data\", [], function(tx, rs) {\n				if(rs.rows.length == 0) {\n					alert(\"Usted no tiene conexión a internet ni tiene data previa de la aplicación. La aplicación procederá a cerrarse.\");\n					navigator.app.exitApp();\n				} else {\n					alert(\"Usted no tiene conexión a internet. La data no estará actualizada ni se mostrarán los logos de las empreesas.\");\n				}\n			});\n		});\n    }\n}\n\n\n\n//reset the css on main screen and set overflow hidden for the 2 main screens\n$(document).on('pagehide','#card-main', function(){\n	if ($(\"#custom\").attr(\"href\") != 'jquery.mobile.theme-1.1.1.min.css'){\n		$(\"html\").css({'overflow':'auto'});\n	}\n});\n$(document).on('pagebeforeshow','#main', function(){\n	$(\"#custom\").attr(\"href\",'jquery.mobile.theme-1.1.1.min.css');\n	$(\"html\").css({'overflow':'hidden'});\n});\n\n$(document).on('pagebeforeshow','#card-main', function(){\n	$(\"html\").css({'overflow':'hidden'});\n});\n\n function switchCSS(file_path, image_path){\n	$(\"#custom\").attr(\"href\",file_path);\n	if (typeof image_path != 'undefined'){\n		$('#card-main').css({'background': 'url('+image_path+') no-repeat center center fixed'});\n	}\n}\n\njQuery(function($) {\n	$.mobile.defaultPageTransition = \"none\";\n	var RESTAURANTS_CATEGORY_ID = 1;\n	var STORES_CATEGORY_ID = 2;\n	var server_url = \"http://mastercard.devmbs.com/\";\n\n	var populateData = function() {\n		window.MasterCardData = {};\n\n		var queryDataToObj = function(db) {\n			db.transaction(\n				function(tx) {\n					tx.executeSql(\"SELECT * FROM data;\",[], function(tx,rs){\n						MasterCardData.benefits = eval(\"(\" + rs.rows.item(0).benefits + \")\");\n						MasterCardData.businesses = eval(\"(\" + rs.rows.item(0).businesses + \")\");\n						MasterCardData.categories = eval(\"(\" + rs.rows.item(0).categories + \")\");\n					});\n				});\n		}\n\n		var getNewData = function(db, version) {\n			$.get(server_url + \"benefits/active/all.json\", function(benefitsStr) {\n				var bens = eval(\"(\" + benefitsStr + \")\");\n				var businessesIds = [];\n				businessesIds = _.reduce(bens,\n					function(xs, el){\n						if(xs.indexOf(el.business_id != 0))\n							xs.push(el.business_id);\n						return xs;\n					}, []);\n				var idsStr = _.reduce(businessesIds, function(str, bid) { return str + bid + \",\"},\"\");\n\n\n				$.get(server_url + \"categories.json\", function(categoriesStr) {\n					$.get(server_url + \"businesses/from_list/\"+idsStr.substring(0,idsStr.length-1)+\".json\", function(businessesStr) {\n						db.transaction(\n							function(tx) {\n								tx.executeSql(\"DROP TABLE IF EXISTS data;\");\n								tx.executeSql(\"CREATE TABLE IF NOT EXISTS data(benefits TEXT, businesses TEXT, categories TEXT, update_id INT);\");\n								tx.executeSql(\"DELETE FROM data WHERE 1=1;\");\n								tx.executeSql(\"INSERT INTO data values('\"+benefitsStr+\"','\"+businessesStr+\"','\"+categoriesStr+\"',\"+version.number+\")\");\n							});\n\n							queryDataToObj(db);\n					}, \"html\");\n				}, \"html\");\n			}, \"html\");\n		}\n		$.getJSON(server_url + \"get_data_version.json\", function(version) {\n			var db = window.openDatabase(\"mastercard_db\", \"1.0\", \"Mastercard Database\", 20000);\n			db.transaction(function(tx) {\n				tx.executeSql(\"SELECT * FROM data\", [], function(tx, rs) {\n					if(rs.rows.item(0).update_id < version.number) {\n						getNewData(db, version);\n					} else {\n						queryDataToObj(db);\n					}\n				});\n			},\n			function() {\n				var db = window.openDatabase(\"mastercard_db\", \"1.0\", \"Mastercard Database\", 20000);\n				getNewData(db, version);\n			});\n		});\n	}\n\n	populateData();\n\n	var loadBenefitDetail = function(benId) {\n		var ben = _.filter(MasterCardData.benefits, function(ben) {return ben.id == benId})[0];\n		$(\"#platinum-benefits-dtl .benDtlTitle\").html(_.filter(MasterCardData.businesses, \n			function(bs) {return bs.id == ben.business_id})[0].name + ' - ' +ben.name);\n		$(\"#platinum-benefits-dtl .benDtlDescription\").html(ben.description);\n		$(\"#platinum-benefits-dtl .benDtlFrom\").html(ben.begin_date);\n		$(\"#platinum-benefits-dtl .benDtlTo\").html(ben.end_date);\n	}\n\n	$(document).delegate(\"#platinum-benefits\", \"pageshow\",function() {\n		$(\"#platinum-benefits-content ul\").empty();\n		$.each(MasterCardData.benefits, function(i,el) {\n			$(\"#platinum-benefits-content ul\").append(\"<li class='benefit-lnk' benefit-id='\"+el.id+\"'><a href='#platinum-benefits-dtl'>\" + el.name + \"</a></li>\");\n		});\n		$(\"#platinum-benefits-content ul\").listview('refresh');\n		$(\".benefit-lnk\").click(function() {\n			loadBenefitDetail($(this).attr(\"benefit-id\"));\n		});\n	});\n\n	var loadBusinessDetail = function(bizId) {\n		var biz = _.filter(MasterCardData.businesses, function(bz) {return bz.id == bizId})[0];\n		$(\"#platinum-business-dtl .bizDtlTitle\").html(biz.name);\n		$(\"#platinum-business-dtl .bizDtlImg\").attr(\"src\", server_url + biz.logo_url);\n		$(\"#platinum-business-dtl .bizDtlTel\").html(biz.phone);\n		$(\"#platinum-business-dtl .bizDtlAddr\").html(biz.address);\n		$(\"#platinum-business-dtl .bizDtlDesc\").html(biz.description);\n\n		var benefits = _.filter(MasterCardData.benefits, function(ben) {return ben.business_id == bizId});\n		$(\"#platinum-business-dtl .bizDtlBenefits\").empty();\n		$.each(benefits, function(i, bnft) {\n			$(\"#platinum-business-dtl .bizDtlBenefits\").append(\"<li class='benefit-lnk' benefit-id='\"+bnft.id+\"'><a href='#platinum-benefits-dtl'>\"+bnft.name+\"</a></li>\");\n		});\n\n		if($(\"#platinum-business-dtl .bizDtlBenefits\").hasClass('ui-listview'))\n			$(\"#platinum-business-dtl .bizDtlBenefits\").listview('refresh');\n\n		$(\".benefit-lnk\").click(function() {\n			loadBenefitDetail($(this).attr(\"benefit-id\"));\n		});\n	}\n\n	var loadBusinesses = function(jqList, bizs) {\n		jqList.empty();\n		$.each(bizs, function(i, el) {\n			jqList.append(\"<li class='business-lnk' business-id='\"+el.id+\"'><a href='#platinum-business-dtl'>\" + el.name + \"</a></li>\");\n		});\n		jqList.listview('refresh');\n		$(\".business-lnk\").click(function() {\n			loadBusinessDetail($(this).attr(\"business-id\"));\n		});\n	};\n\n	var loadCategories = function(jqList, categories) {\n		jqList.empty();\n		$.each(categories, function(i, ctg) {\n			jqList.append(\"<li class='category-lnk' category-id='\"+ctg.id+\"'><a href='#platinum-businesses'>\" + ctg.name + \"</a></li>\");\n		});\n		jqList.listview('refresh');\n		$(\".category-lnk\").click(function() {\n			MasterCardData.currCatId = $(this).attr('category-id');\n		});\n	}\n\n	$(document).delegate(\"#platinum-businesses\", \"pageshow\",function() {\n		loadBusinesses($(\"#platinum-businesses-content ul\"), _.filter(MasterCardData.businesses, function(bz){return bz.category_id == MasterCardData.currCatId}));\n	});\n\n	$(document).delegate(\"#categories\", \"pageshow\",function() {\n		loadCategories($(\"#categories-content ul\"), MasterCardData.categories);\n	});\n});",
 			"file": "/Users/lurraca/Desktop/projects/mbs/MastercardBB/www/main.js",
-			"file_size": 7727,
-			"file_write_time": 1346024459000000,
 			"settings":
 			{
-				"buffer_size": 7718,
+				"buffer_size": 8076,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/lurraca/Desktop/projects/mbs/MastercardBB/www/index.html",
+			"settings":
+			{
+				"buffer_size": 9774,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/lurraca/Desktop/projects/mbs/MastercardBB/www/css/style.css",
+			"settings":
+			{
+				"buffer_size": 994,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "onload(){\n	checkifthere if internet{\n		comparewithdataversion{\n			//donomarl\n		} else {\n			//createdbblabla\n		}\n	} else {\n		checkifdbcreate{\n			//alertusernoinet\n			//do normal\n		} else {\n			//alertusernoinetnodata\n			//close app\n		}\n	}\n}",
+			"settings":
+			{
+				"buffer_size": 238,
+				"line_ending": "Unix",
+				"name": "onload(){"
 			}
 		}
 	],
 	"build_system": "Packages/Ruby/Ruby.sublime-build",
 	"command_palette":
 	{
-		"height": 360.0,
+		"height": 392.0,
 		"selected_items":
 		[
-			[
-				"ins",
-				"Package Control: Install Package"
-			],
 			[
 				"inst",
 				"Package Control: Install Package"
 			],
 			[
-				"install",
+				"insta",
 				"Package Control: Install Package"
 			],
 			[
-				"insta",
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
 				"Package Control: Install Package"
 			],
 			[
@@ -67,6 +89,7 @@
 	},
 	"file_history":
 	[
+		"/Users/lurraca/Desktop/projects/mbs/MastercardBB/www/COMMIT_EDITMSG.COMMIT_EDITMSG",
 		"/Users/lurraca/Desktop/projects/mbs/mastercard-iphone/www/cordova-2.0.0.js"
 	],
 	"find":
@@ -113,15 +136,15 @@
 					"file": "/Users/lurraca/Desktop/projects/mbs/MastercardBB/www/main.js",
 					"settings":
 					{
-						"buffer_size": 7718,
+						"buffer_size": 8076,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3296,
-								3296
+								2107,
+								2107
 							]
 						],
 						"settings":
@@ -130,7 +153,89 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 706.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/lurraca/Desktop/projects/mbs/MastercardBB/www/index.html",
+					"settings":
+					{
+						"buffer_size": 9774,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/lurraca/Desktop/projects/mbs/MastercardBB/www/css/style.css",
+					"settings":
+					{
+						"buffer_size": 994,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								350,
+								350
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 341.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"settings":
+					{
+						"buffer_size": 238,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								229,
+								229
+							]
+						],
+						"settings":
+						{
+							"auto_name": "onload(){",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

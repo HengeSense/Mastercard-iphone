@@ -63,7 +63,7 @@ font-size: 18px;
 .ui-icon-arrow-r{
 
 }
-#platinum-benefits-content h3{
+#platinum-business-content h3{
 	margin-left:2% !important;
 }
 .bizDtlImg{
@@ -76,6 +76,8 @@ font-size: 18px;
 	float:left;
 }
 
+.ui-page { -webkit-backface-visibility: hidden; }
+
 
 #bizDtlWrapper span{
 	font-size:12px;
@@ -87,16 +89,44 @@ font-size: 18px;
 	float:right;
 }
 
+#categories-content .ui-btn{
+	margin: 0 auto;
+	width: 60%;
+	margin-top: 5%;
+}
+
+#categories-content{
+	margin-top: 20%;
+}
+
+#platinum-businesses-content .ui-btn-text{
+	margin-left: 5%;
+}
+
 #platinum-business-dtl h3{
 	margin-left:5%;
+	float:left;
+}
+
+#platinum-business-dtl ul{
+	width:100%;
+}
+
+.ui-li-desc{
+	white-space: normal;
 }
 
 #benefitdtlwrapper{
 	margin-left:5%;
+	float:left;
+}
+
+#platinum-business-dtl h3{
+	float:left;
 }
 
 #main{
 	overflow: hidden;
-	background: url(../images/playa.jpg) no-repeat center center fixed;
+	background: url(../images/introbg.jpg) no-repeat center center fixed;
 	-webkit-background-size: cover;
 }

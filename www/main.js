@@ -27,6 +27,8 @@ function setOnline() {
     console.log("Device is Online");
 }
 
+
+
 function block(){
 	$.blockUI({ message: $('#loader'), css: { 
             border: 'none', 
@@ -42,6 +44,7 @@ function block(){
 function onDeviceReady() {
 	console.log("PhoneGap Loaded!");
 	block();
+	$('a').attr("data-transition","pop");
 	checkConnection();
     document.addEventListener("offline", setOffline, false);
     document.addEventListener("resume", onResume, false);
@@ -154,11 +157,19 @@ $(document).on('pagehide','#card-main', function(){
 		$("html").css({'overflow':'auto'});
 	}
 });
+
+$(document).on('pagehide','#platinum-businesses', function(){
+	$('#platinum-businesses-content ul').empty();
+});
+
 $(document).on('pagebeforeshow','#main', function(){
 	$("#custom").attr("href",'jquery.mobile.theme-1.1.1.min.css');
 	$("html").css({'overflow':'hidden'});
 });
 
+// $(document).on('pagebeforeshow','#main', function(){
+// 	$('a').attr("data-transition","pop");
+// });
 $(document).on('pagebeforeshow','#card-main', function(){
 	$("html").css({'overflow':'hidden'});
 });
@@ -281,19 +292,31 @@ $(document).on('pagebeforeshow','#card-main', function(){
 		$("#platinum-benefits-dtl .benDtlTo").html(ben.end_date);
 	}
 
-	$(document).delegate("#platinum-benefits", "pageshow",function() {
-		$("#platinum-benefits-content ul").empty();
+	$(document).delegate("#platinum-businesses", "pageshow",function() {
+		$("#platinum-businesses-content ul").empty();
 		$.each(MasterCardData.benefits, function(i,el) {
 			biz = _.filter(MasterCardData.businesses, function(bs) {return bs.id == el.business_id})[0];
-			$("#platinum-benefits-content ul").append("<li class='benefit-lnk' benefit-id='"+el.id+"'><h3>"+biz.name
-				+"</h3><a href='#platinum-benefits-dtl'><p>" + el.name + "</p></a></li>");
+			$("#platinum-businesses-content ul").append("<li class='business-lnk' business-id='"+el.id+"'><a href='#platinum-business-dtl'><h3>"+biz.name
+				+"</h3><p>" + el.name + "</p></a></li>");
 		});
-		$("#platinum-benefits-content ul").listview('refresh');
-		$(".benefit-lnk").click(function() {
-			loadBenefitDetail($(this).attr("benefit-id"));
+		$("#platinum-businesses-content ul").listview('refresh');
+		$(".business-lnk").click(function() {
+			loadBusinessDetail($(this).attr("business-id"));
 		});
 	});
-
+	// $(document).delegate("#platinum-businesses", "pageshow",function() {
+	// 	$("#platinum-benefits-content ul").empty();
+	// 	var ben;
+	// 	$.each(MasterCardData.businesses, function(i,el) {
+	// 		ben = _.filter(MasterCardData.benefits, function(bs) {return bs.id == el.benefit_id})[0];
+	// 		$("#platinum-businesses-content ul").append("<li class='business-lnk' business-id='"+el.id+"'><h3>"+el.name
+	// 			+"</h3><a href='#platinum-business-dtl'><p>" + el.name + "</p></a></li>");
+	// 	});
+	// 	$("#platinum-businesses-content ul").listview('refresh');
+	// 	$(".business-lnk").click(function() {
+	// 		loadBusinessDetail($(this).attr("business-id"));
+	// 	});
+	// });
 	var loadBusinessDetail = function(bizId) {
 		var biz = _.filter(MasterCardData.businesses, function(bz) {return bz.id == bizId})[0];
 		$("#platinum-business-dtl .bizDtlTitle").html(biz.name);
@@ -308,8 +331,12 @@ $(document).on('pagebeforeshow','#card-main', function(){
 
 		var benefits = _.filter(MasterCardData.benefits, function(ben) {return ben.business_id == bizId});
 		$("#platinum-business-dtl .bizDtlBenefits").empty();
+		
 		$.each(benefits, function(i, bnft) {
-			$("#platinum-business-dtl .bizDtlBenefits").append("<li class='benefit-lnk' benefit-id='"+bnft.id+"'><a href='#platinum-benefits-dtl'>"+bnft.name+"</a></li>");
+
+			$("#platinum-business-dtl .benDtlDescription").html(bnft.description);
+			$("#platinum-business-dtl .benDtlFrom").html(bnft.begin_date);
+			$("#platinum-business-dtl .benDtlTo").html(bnft.end_date);
 		});
 
 		if($("#platinum-business-dtl .bizDtlBenefits").hasClass('ui-listview'))
@@ -323,7 +350,8 @@ $(document).on('pagebeforeshow','#card-main', function(){
 	var loadBusinesses = function(jqList, bizs) {
 		jqList.empty();
 		$.each(bizs, function(i, el) {
-			jqList.append("<li class='business-lnk' business-id='"+el.id+"'><a href='#platinum-business-dtl'>" + el.name + "</a></li>");
+			var benefits = _.filter(MasterCardData.benefits, function(ben){ return ben.business_id == el.id});
+			jqList.append("<li class='business-lnk' business-id='"+el.id+"'><a href='#platinum-business-dtl'><h3>" + el.name +"</h3><p>"+ benefits[0].name +"</p></a></li>");
 		});
 		jqList.listview('refresh');
 		$(".business-lnk").click(function() {
@@ -334,7 +362,7 @@ $(document).on('pagebeforeshow','#card-main', function(){
 	var loadCategories = function(jqList, categories) {
 		jqList.empty();
 		$.each(categories, function(i, ctg) {
-			jqList.append("<a href='#platinum-businesses' data-theme='c' class='category-lnk' category-id='"+ctg.id+"' data-role='button'>" + ctg.name + "</a>");
+			jqList.append("<a href='#platinum-businesses' data-theme='c' data-transition='pop' class='category-lnk' category-id='"+ctg.id+"' data-role='button'>" + ctg.name + "</a>");
 		});
 		$("#categories").trigger('create');
 		$(".category-lnk").click(function() {

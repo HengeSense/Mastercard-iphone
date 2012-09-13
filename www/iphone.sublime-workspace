@@ -4,24 +4,64 @@
 		"selected_items":
 		[
 			[
+				"data",
+				"data-transition"
+			],
+			[
+				"on",
+				"onResume"
+			],
+			[
+				"get",
+				"getDataVersion"
+			],
+			[
+				"actu",
+				"actualVersion"
+			],
+			[
+				"mo",
+				"actualMode"
+			],
+			[
+				"ac",
+				"actualMode"
+			],
+			[
+				"Net",
+				"networkAvailable"
+			],
+			[
+				"do",
+				"doFlow"
+			],
+			[
+				"check",
+				"checkConnection"
+			],
+			[
+				"da",
+				"databaseAvailable"
+			],
+			[
+				"set",
+				"setDatabase"
+			],
+			[
+				"is",
+				"isDatabasePresent"
+			],
+			[
+				"mastercard",
+				"mastercard_db"
+			],
+			[
 				"net",
 				"networkAvailable"
 			],
 			[
-				"is",
-				"isNetworkAvailable"
-			],
-			[
-				"set",
-				"setOffline"
-			],
-			[
 				"se",
 				"setOffline"
-			],
-			[
-				"get",
-				"get_data_version"
 			],
 			[
 				"bus",
@@ -59,7 +99,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 9523,
+				"buffer_size": 9716,
 				"line_ending": "Unix"
 			}
 		},
@@ -67,7 +107,7 @@
 			"file": "css/style.css",
 			"settings":
 			{
-				"buffer_size": 1637,
+				"buffer_size": 1688,
 				"line_ending": "Unix"
 			}
 		},
@@ -83,7 +123,7 @@
 			"file": "main.js",
 			"settings":
 			{
-				"buffer_size": 9866,
+				"buffer_size": 12228,
 				"line_ending": "Unix"
 			}
 		},
@@ -166,6 +206,31 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"pop",
+			"po",
+			"pop",
+			"mobile",
+			"slide",
+			"time",
+			"pop",
+			"slide",
+			"flip",
+			"alert",
+			"slide",
+			"alert",
+			"resume",
+			"business det",
+			"onDevice",
+			"true",
+			"onDeviceReady() {",
+			"onDeviceReady(){",
+			"onDeviceReady()",
+			"onDeviceReady",
+			"onDevice",
+			"ondevice",
+			"!\");\n",
+			"alert",
+			"block",
 			"send",
 			" \");",
 			"bix",
@@ -186,6 +251,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"flip",
+			"pop",
+			"slide",
 			"<center><h1 id=\"logo\">My Logo</h1></center>",
 			"<center><img id=\"logo\" src=\"images/mastercardlogo.png\"></center>"
 		],
@@ -206,15 +274,15 @@
 					"file": "index.html",
 					"settings":
 					{
-						"buffer_size": 9523,
+						"buffer_size": 9716,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3616,
-								3616
+								940,
+								940
 							]
 						],
 						"settings":
@@ -224,7 +292,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 769.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -234,15 +302,15 @@
 					"file": "css/style.css",
 					"settings":
 					{
-						"buffer_size": 1637,
+						"buffer_size": 1688,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								710,
-								764
+								1555,
+								1555
 							]
 						],
 						"settings":
@@ -289,15 +357,15 @@
 					"file": "main.js",
 					"settings":
 					{
-						"buffer_size": 9866,
+						"buffer_size": 12228,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								824,
-								824
+								12228,
+								12228
 							]
 						],
 						"settings":
@@ -306,7 +374,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3884.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -333,7 +401,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 4465.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
