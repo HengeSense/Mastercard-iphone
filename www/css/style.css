@@ -17,6 +17,11 @@
 	background-size: auto 30px ;
 	text-indent:-9999px;
 	}
+	#main{
+	overflow: hidden;
+	background: url(../images/cover@2x.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+}
 }
 
 .ui-header{
@@ -51,6 +56,12 @@ font-size: 18px;
 
 }
 
+.ui-content{
+	width: 100%;
+	position: absolute;
+	height: 76%;
+}
+
 #card-main{
 	overflow: hidden;
 	background: url(../images/platinumbg.jpg) no-repeat center center fixed;
@@ -58,7 +69,15 @@ font-size: 18px;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+}
 
+#categories{
+	overflow: hidden;
+	background: url(../images/platinum_bg_nc.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover !important;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 .ui-icon-arrow-r{
 
@@ -127,6 +146,6 @@ font-size: 18px;
 
 #main{
 	overflow: hidden;
-	background: url(../images/introbg.jpg) no-repeat center center fixed;
+	background: url(../images/cover.jpg) no-repeat center center fixed;
 	-webkit-background-size: cover;
 }

@@ -1,5 +1,7 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 
+
+
 var isNetworkAvailable= null;
 var isDatabasePresent = null;
 var MODES = {"Internet + DB":1, "No Internet + DB":2, "Internet + No DB":3, "No Internet + No DB":4}
@@ -44,7 +46,7 @@ function block(){
 function onDeviceReady() {
 	console.log("PhoneGap Loaded!");
 	block();
-	$('a').attr("data-transition","pop");
+	$('a').attr("data-transition","none");
 	checkConnection();
     document.addEventListener("offline", setOffline, false);
     document.addEventListener("resume", onResume, false);
@@ -118,7 +120,6 @@ function checkDatabase(){
 		tx.executeSql("SELECT * FROM data", [], function (tx, rs) { setDatabase(true); doFlow(true);},
       function (tx, err) { setDatabase(false); doFlow(false);});
 	});
-	
 }
 
 // function checkConnection() {
@@ -174,10 +175,11 @@ $(document).on('pagebeforeshow','#card-main', function(){
 	$("html").css({'overflow':'hidden'});
 });
 
- function switchCSS(file_path, image_path){
+ function switchCSS(file_path, image_path, image_path_nc){
 	$("#custom").attr("href",file_path);
 	if (typeof image_path != 'undefined'){
 		$('#card-main').css({'background': 'url('+image_path+') no-repeat center center fixed'});
+		$('#categories').css({'background': 'url('+image_path_nc+') no-repeat center center fixed'});
 	}
 }
 
@@ -362,7 +364,7 @@ $(document).on('pagebeforeshow','#card-main', function(){
 	var loadCategories = function(jqList, categories) {
 		jqList.empty();
 		$.each(categories, function(i, ctg) {
-			jqList.append("<a href='#platinum-businesses' data-theme='c' data-transition='pop' class='category-lnk' category-id='"+ctg.id+"' data-role='button'>" + ctg.name + "</a>");
+			jqList.append("<a href='#platinum-businesses' data-theme='c' data-transition='none' class='category-lnk' category-id='"+ctg.id+"' data-role='button'>" + ctg.name + "</a>");
 		});
 		$("#categories").trigger('create');
 		$(".category-lnk").click(function() {
