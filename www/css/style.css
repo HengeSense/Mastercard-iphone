@@ -56,7 +56,7 @@ font-size: 18px;
 
 }
 
-.ui-content{
+#card-main .ui-content{
 	width: 100%;
 	position: absolute;
 	height: 76%;
@@ -91,6 +91,7 @@ font-size: 18px;
 
 
 #bizDtlWrapper{
+	width: 100%;
 	margin-left:5%;
 	float:left;
 }

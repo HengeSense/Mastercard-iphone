@@ -48,7 +48,7 @@
             </div>
             <div data-role="content" onclick="location.href='#categories'">
             </div>
-            <div data-role="footer" data-theme="c" data-position="fixed">
+            <div data-role="footer" data-theme="a" data-position="fixed">
                 <div data-role="navbar" data-theme="c">
                     <ul>
                         <li><a data-theme="c" class="categories-link" href="#categories">Ofertas por Categorias</a></li>
@@ -124,12 +124,13 @@
                 <center><h1 id="logo">My Logo</h1></center>
                 <a href="" data-icon="back" onclick="history.back();" data-iconpos="notext" data-theme="a"></a>
             </div>
-            <div id="platinum-businesses-content">
+            
+
+            <div data-role="content">
+                <div id="platinum-businesses-content">
                 <ul data-role="listview" data-theme="b">
                 </ul>
             </div>
-
-            <div data-role="content">
             </div>
 
             <div data-role="footer" data-theme="c"  data-position="fixed">
@@ -149,22 +150,23 @@
                 <center><h1 id="logo">My Logo</h1></center>
                 <a href="" data-icon="back" onclick="history.back();" data-iconpos="notext" data-theme="a"></a>
             </div>
-            <div id="bizDtlWrapper">
-                <h2 class="bizDtlTitle"></h2>
-                <img class="bizDtlImg" src="" />
-                <div id="bizDtlInfo">
-                    <span><b>Teléfono: </b></span><span class="bizDtlTel"></span></p>
-                    <span><b>Dirección: </b></span><span class="bizDtlAddr"></span></p>
-                    <span><b>Descripción: </b></span><span class="bizDtlDesc"></span></p>
+            <div data-role="content">
+                <div id="bizDtlWrapper">
+                    <h2 class="bizDtlTitle"></h2>
+                    <img class="bizDtlImg" src="" />
+                    <div id="bizDtlInfo">
+                        <span><b>Teléfono: </b></span><span class="bizDtlTel"></span></p>
+                        <span><b>Dirección: </b></span><span class="bizDtlAddr"></span></p>
+                        <span><b>Descripción: </b></span><span class="bizDtlDesc"></span></p>
+                    </div>
+                </div>
+                <div style="float:left; width: 100%;">
+                    <ul data-role="listview" data-inset="true" data-theme="c" data-dividertheme="a">
+                        <li data-role="list-divider">Ofertas</li>
+                        <li><p class="benDtlDescription"></p><strong>Vigencia: </strong><span class="benDtlFrom"></span> - <span class="benDtlTo"></span></p></li>
+                    </ul>
                 </div>
             </div>
-                <ul data-role="listview" style="float:left;">
-                    <li>
-                        <h2>Oferta</h2>
-                        <p style="margin-top:5px;"><strong>Descripcion: </strong> <span class="benDtlDescription"></span></p>
-                        <p style="margin-top:5px;"><strong>Vigencia: </strong><span class="benDtlFrom"></span> - <span class="benDtlTo"></span></p>
-                     </li>
-                </ul>
             <div data-theme="c" data-role="footer" data-position="fixed">
                 <div data-role="navbar">
                     <ul>

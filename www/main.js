@@ -46,7 +46,7 @@ function block(){
 function onDeviceReady() {
 	console.log("PhoneGap Loaded!");
 	block();
-	$('a').attr("data-transition","none");
+	$('a').attr("data-transition","pop");
 	checkConnection();
     document.addEventListener("offline", setOffline, false);
     document.addEventListener("resume", onResume, false);
@@ -332,18 +332,20 @@ $(document).on('pagebeforeshow','#card-main', function(){
 		$("#platinum-business-dtl .bizDtlDesc").html(biz.description);
 
 		var benefits = _.filter(MasterCardData.benefits, function(ben) {return ben.business_id == bizId});
-		$("#platinum-business-dtl .bizDtlBenefits").empty();
+		//$("#platinum-business-dtl .bizDtlBenefits").empty();
 		
 		$.each(benefits, function(i, bnft) {
-
-			$("#platinum-business-dtl .benDtlDescription").html(bnft.description);
+			$("#platinum-business-dtl .benDtlDescription").html("<b>Descripcion:</b> " +bnft.description);
 			$("#platinum-business-dtl .benDtlFrom").html(bnft.begin_date);
 			$("#platinum-business-dtl .benDtlTo").html(bnft.end_date);
+			//console.log(bnft.description + " " + bnft.begin_date + " " + bnft.end_date)
 		});
 
-		if($("#platinum-business-dtl .bizDtlBenefits").hasClass('ui-listview'))
-			$("#platinum-business-dtl .bizDtlBenefits").listview('refresh');
-
+		//if($("#platinum-business-dtl ul").hasClass('view')){
+			//$("#platinum-business-dtl ul").listview();
+		//	console.log("BAM!");
+		//	alert("da shit");
+		//}
 		$(".benefit-lnk").click(function() {
 			loadBenefitDetail($(this).attr("benefit-id"));
 		});
@@ -364,7 +366,7 @@ $(document).on('pagebeforeshow','#card-main', function(){
 	var loadCategories = function(jqList, categories) {
 		jqList.empty();
 		$.each(categories, function(i, ctg) {
-			jqList.append("<a href='#platinum-businesses' data-theme='c' data-transition='none' class='category-lnk' category-id='"+ctg.id+"' data-role='button'>" + ctg.name + "</a>");
+			jqList.append("<a href='#platinum-businesses' data-theme='c' data-transition='pop' class='category-lnk' category-id='"+ctg.id+"' data-role='button'>" + ctg.name + "</a>");
 		});
 		$("#categories").trigger('create');
 		$(".category-lnk").click(function() {
