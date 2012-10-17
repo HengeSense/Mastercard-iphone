@@ -36,12 +36,13 @@
 		30E5649213A7FCAF007403D8 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30E5649113A7FCAF007403D8 /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		413B884016098ED60051D304 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 413B883F16098ED60051D304 /* icon@2x.png */; };
 		413B884216098EDE0051D304 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 413B884116098EDE0051D304 /* icon.png */; };
-		413B884516098F5B0051D304 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 413B884316098F5B0051D304 /* icon.png */; };
-		413B884616098F5B0051D304 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 413B884416098F5B0051D304 /* icon@2x.png */; };
 		4148DD351609901200FD1A05 /* icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4148DD341609901200FD1A05 /* icon-72@2x.png */; };
 		4148DD371609901600FD1A05 /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 4148DD361609901600FD1A05 /* icon-72.png */; };
 		41508F6D15EC3A12006103E4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 41508F6C15EC3A12006103E4 /* Default.png */; };
 		41508F6F15EC3A16006103E4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41508F6E15EC3A16006103E4 /* Default@2x.png */; };
+		415F80F9162E56D10072DC99 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 415F80F8162E56D10072DC99 /* Icon@2x.png */; };
+		415F80FB162E56DB0072DC99 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 415F80FA162E56DB0072DC99 /* Icon.png */; };
+		415F80FE162E5AB40072DC99 /* PhoneDialer.m in Sources */ = {isa = PBXBuildFile; fileRef = 415F80FD162E5AB40072DC99 /* PhoneDialer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,8 +111,6 @@
 		32CA4F630368D1EE00C91783 /* Mastercard-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Mastercard-Prefix.pch"; sourceTree = "<group>"; };
 		413B883F16098ED60051D304 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		413B884116098EDE0051D304 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		413B884316098F5B0051D304 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = www/res/icon/icon.png; sourceTree = SOURCE_ROOT; };
-		413B884416098F5B0051D304 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "www/res/icon/icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		4148DD341609901200FD1A05 /* icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72@2x.png"; sourceTree = "<group>"; };
 		4148DD361609901600FD1A05 /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72.png"; sourceTree = "<group>"; };
 		414CEB1F15EF54830054D9D3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -124,6 +123,10 @@
 		41508F6E15EC3A16006103E4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		415A18F815EF5C6F006E00DC /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		415A18FA15EF5C89006E00DC /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		415F80F8162E56D10072DC99 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		415F80FA162E56DB0072DC99 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		415F80FC162E5A910072DC99 /* PhoneDialer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneDialer.h; sourceTree = "<group>"; };
+		415F80FD162E5AB40072DC99 /* PhoneDialer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneDialer.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Mastercard-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Mastercard-Info.plist"; path = "../Mastercard-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -282,6 +285,8 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				415F80FD162E5AB40072DC99 /* PhoneDialer.m */,
+				415F80FC162E5A910072DC99 /* PhoneDialer.h */,
 			);
 			name = Plugins;
 			path = Mastercard/Plugins;
@@ -290,8 +295,8 @@
 		308D052D1370CCF300D202BF /* icons */ = {
 			isa = PBXGroup;
 			children = (
-				413B884316098F5B0051D304 /* icon.png */,
-				413B884416098F5B0051D304 /* icon@2x.png */,
+				415F80FA162E56DB0072DC99 /* Icon.png */,
+				415F80F8162E56D10072DC99 /* Icon@2x.png */,
 			);
 			path = icons;
 			sourceTree = "<group>";
@@ -349,7 +354,7 @@
 			attributes = {
 				LastUpgradeCheck = 0440;
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Mastercard" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "mastercard" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -420,10 +425,10 @@
 				41508F6F15EC3A16006103E4 /* Default@2x.png in Resources */,
 				413B884016098ED60051D304 /* icon@2x.png in Resources */,
 				413B884216098EDE0051D304 /* icon.png in Resources */,
-				413B884516098F5B0051D304 /* icon.png in Resources */,
-				413B884616098F5B0051D304 /* icon@2x.png in Resources */,
 				4148DD351609901200FD1A05 /* icon-72@2x.png in Resources */,
 				4148DD371609901600FD1A05 /* icon-72.png in Resources */,
+				415F80F9162E56D10072DC99 /* Icon@2x.png in Resources */,
+				415F80FB162E56DB0072DC99 /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +459,7 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
+				415F80FE162E5AB40072DC99 /* PhoneDialer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,7 +638,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Mastercard" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "mastercard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,

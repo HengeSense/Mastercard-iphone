@@ -10,6 +10,7 @@
         <script type="text/javascript" src="underscore-min.js"></script>
         <script type="text/javascript" src="cordova-2.0.0.js"></script>
         <script type="text/javascript" src="main.js"></script>
+        <script type="text/javascript" src="PhoneDialer.js"></script>
         <script type="text/javascript" src="jquery.blockUI.js"></script>
 
         <script language="JavaScript" type="text/javascript" src="localytics-latest.js"></script>
@@ -42,9 +43,9 @@
         </div>
         <div id="card-main" data-theme="" data-role="page">
             <div data-role="header" data-position="fixed" data-theme="a">
-                <a href="#main" onclick="switchCSS('jquery.mobile.theme-1.1.1.min.css')" data-icon="home" data-iconpos="notext" data-theme="a"></a>
+                <a href="#main" data-icon="back" data-iconpos="notext" data-theme="a"></a>
                 <center><h1 id="logo">My Logo</h1></center>
-                <a href="" data-icon="back" onclick="history.back();" data-iconpos="notext" data-theme="a"></a>
+                <a href="#main" onclick="switchCSS('jquery.mobile.theme-1.1.1.min.css')" data-icon="home" data-iconpos="notext" data-theme="a"></a>
             </div>
             <div data-role="content" onclick="location.href='#categories'">
             </div>
@@ -52,34 +53,24 @@
                 <div data-role="navbar" data-theme="c">
                     <ul>
                         <li><a data-theme="c" class="categories-link" href="#categories">Ofertas por Categorias</a></li>
-                        
                     </ul>
                 </div>
             </div>
-
         </div>
         <div id="platinum-benefits" data-role="page">
-
             <div data-role="header" data-position="fixed">
-                    <a href="#main" onclick="switchCSS('jquery.mobile.theme-1.1.1.min.css')" data-icon="home" data-iconpos="notext" data-theme="a"></a>
-
-                <center><h1 id="logo">My Logo</h1></center>
                 <a href="" data-icon="back" onclick="history.back();" data-iconpos="notext" data-theme="a"></a>
+                <center><h1 id="logo">My Logo</h1></center>
+                <a href="#main" onclick="switchCSS('jquery.mobile.theme-1.1.1.min.css')" data-icon="home" data-iconpos="notext" data-theme="a"></a>
             </div>
-
             <div id="mastercardlogo">
             </div>
-
             <div id="platinum-benefits-content">
                 <ul data-role="listview" data-theme="b"  data-inset="true">
-                    
                 </ul>
             </div>
-
-            <div data-role="content">   
-                    
+            <div data-role="content">
             </div>
-
             <div data-role="footer" data-position="fixed">
                 <div data-role="navbar">
                     <ul>
@@ -90,12 +81,10 @@
         </div>
         <div id="platinum-benefits-dtl" data-role="page">
             <div data-role="header" data-position="fixed">
-                    <a href="#main" onclick="switchCSS('jquery.mobile.theme-1.1.1.min.css')" data-icon="home" data-iconpos="notext" data-theme="a"></a>
-
-                <center><h1 id="logo">My Logo</h1></center>
                 <a href="" data-icon="back" onclick="history.back();" data-iconpos="notext" data-theme="a"></a>
+                <center><h1 id="logo">My Logo</h1></center>
+                <a href="#main" onclick="switchCSS('jquery.mobile.theme-1.1.1.min.css')" data-icon="home" data-iconpos="notext" data-theme="a"></a>
             </div>
-
             <div id="benefitdtlwrapper">
                 <h2 class="benDtlTitle"></h2>
                 <h2 class="benDtlBusiness"></h2>
@@ -104,35 +93,26 @@
                 <b>Fecha de Inicio: </b><p class="benDtlFrom"></p>
                 <b>Fecha de Termino: </b><p class="benDtlTo"></p></span>
             </div>
-
             <div data-role="footer" data-position="fixed">
                 <div data-role="navbar">
                     <ul>
-                        
                         <li><a data-theme="c" class="categories-link" href="#categories">Ofertas por Categorias</a></li>
-                        
                     </ul>
                 </div>
             </div>
         </div>
-
         <div id="platinum-businesses" data-role="page">
-
             <div data-role="header" data-position="fixed">
-                    <a href="#main" onclick="switchCSS('jquery.mobile.theme-1.1.1.min.css')" data-icon="home" data-iconpos="notext" data-theme="a"></a>
-
+                <a href="#categories" data-icon="back" data-iconpos="notext" data-theme="a"></a>
                 <center><h1 id="logo">My Logo</h1></center>
-                <a href="" data-icon="back" onclick="history.back();" data-iconpos="notext" data-theme="a"></a>
+                <a href="#main" onclick="switchCSS('jquery.mobile.theme-1.1.1.min.css')" data-icon="home" data-iconpos="notext" data-theme="a"></a>
             </div>
-            
-
             <div data-role="content">
                 <div id="platinum-businesses-content">
                 <ul data-role="listview" data-theme="b">
                 </ul>
             </div>
             </div>
-
             <div data-role="footer" data-theme="c"  data-position="fixed">
                 <div data-theme="c" data-role="navbar">
                     <ul>
@@ -141,14 +121,11 @@
                 </div>
             </div>
         </div>
-
-
         <div id="platinum-business-dtl" data-role="page">
             <div data-role="header" data-position="fixed">
-                    <a href="#main" onclick="switchCSS('jquery.mobile.theme-1.1.1.min.css')" data-icon="home"data-iconpos="notext"  data-theme="a"></a>
-
+                <a href="#platinum-businesses" data-icon="back" data-iconpos="notext" data-theme="a"></a>
                 <center><h1 id="logo">My Logo</h1></center>
-                <a href="" data-icon="back" onclick="history.back();" data-iconpos="notext" data-theme="a"></a>
+                <a href="#main" onclick="switchCSS('jquery.mobile.theme-1.1.1.min.css')" data-icon="home"data-iconpos="notext"  data-theme="a"></a>
             </div>
             <div data-role="content">
                 <div id="bizDtlWrapper">
@@ -175,36 +152,25 @@
                 </div>
             </div>
         </div>
-
         <div id="categories" data-role="page">
-
             <div data-role="header" data-position="fixed">
-                    <a href="#main" onclick="switchCSS('jquery.mobile.theme-1.1.1.min.css')" data-icon="home" data-iconpos="notext" data-theme="a"></a>
-
+                <a href="#card-main" data-icon="back" data-iconpos="notext" data-theme="a"></a>
                 <center><h1 id="logo">My Logo</h1></center>
-                <a href="" data-icon="back" onclick="history.back();" data-iconpos="notext" data-theme="a"></a>
+                <a href="#main" onclick="switchCSS('jquery.mobile.theme-1.1.1.min.css')" data-icon="home" data-iconpos="notext" data-theme="a"></a>
             </div>
-
             <div id="categories-content">
                 <ul data-role="listview" data-theme="b">
-                    
                 </ul>
             </div>
-
-            <div data-role="content">   
-                    
+            <div data-role="content">
             </div>
-
             <div data-role="footer" data-position="fixed">
                 <div data-role="navbar">
                     <ul>
-                        
                         <li><a data-theme="c" class="categories-link" href="#categories">Ofertas por Categorias</a></li>
-                        
                     </ul>
                 </div>
             </div>
         </div>
-
     </body>
 </html>

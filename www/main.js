@@ -46,7 +46,7 @@ function block(){
 function onDeviceReady() {
 	console.log("PhoneGap Loaded!");
 	block();
-	$('a').attr("data-transition","pop");
+	$('a').attr("data-transition","none");
 	checkConnection();
     document.addEventListener("offline", setOffline, false);
     document.addEventListener("resume", onResume, false);
@@ -327,7 +327,7 @@ $(document).on('pagebeforeshow','#card-main', function(){
        	} else {
        		$("#platinum-business-dtl .bizDtlImg").attr("src","images/noinet.jpg");
        }
-		$("#platinum-business-dtl .bizDtlTel").html(biz.phone);
+		$("#platinum-business-dtl .bizDtlTel").html("<a onclick='window.plugins.phoneDialer.dial("+biz.phone+")' href=tel:"+biz.phone.replace(/[^0-9]/g, '')+">"+biz.phone+"</a>");
 		$("#platinum-business-dtl .bizDtlAddr").html(biz.address);
 		$("#platinum-business-dtl .bizDtlDesc").html(biz.description);
 
@@ -355,7 +355,7 @@ $(document).on('pagebeforeshow','#card-main', function(){
 		jqList.empty();
 		$.each(bizs, function(i, el) {
 			var benefits = _.filter(MasterCardData.benefits, function(ben){ return ben.business_id == el.id});
-			jqList.append("<li class='business-lnk' business-id='"+el.id+"'><a href='#platinum-business-dtl'><h3>" + el.name +"</h3><p>"+ benefits[0].name +"</p></a></li>");
+			jqList.append("<li class='business-lnk' business-id='"+el.id+"'><a href='#platinum-business-dtl' data-transition='none'><h3>" + el.name +"</h3><p>"+ benefits[0].name +"</p></a></li>");
 		});
 		jqList.listview('refresh');
 		$(".business-lnk").click(function() {
@@ -366,7 +366,7 @@ $(document).on('pagebeforeshow','#card-main', function(){
 	var loadCategories = function(jqList, categories) {
 		jqList.empty();
 		$.each(categories, function(i, ctg) {
-			jqList.append("<a href='#platinum-businesses' data-theme='c' data-transition='pop' class='category-lnk' category-id='"+ctg.id+"' data-role='button'>" + ctg.name + "</a>");
+			jqList.append("<a href='#platinum-businesses' data-theme='c' data-transition='none' class='category-lnk' category-id='"+ctg.id+"' data-role='button'>" + ctg.name + "</a>");
 		});
 		$("#categories").trigger('create');
 		$(".category-lnk").click(function() {

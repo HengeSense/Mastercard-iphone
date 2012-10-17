@@ -29,6 +29,8 @@
 	</array>
 	<key>Plugins</key>
 	<dict>
+		<key>PhoneDialer</key>
+		<string>PhoneDialer</string>
 		<key>Device</key>
 		<string>CDVDevice</string>
 		<key>Logger</key>

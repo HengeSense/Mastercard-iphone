@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"de",
+				"description"
+			],
+			[
+				"Master",
+				"MasterCardData"
+			],
+			[
+				"business",
+				"business-id"
+			],
+			[
+				"platinum-business",
+				"platinum-businesses-content"
+			],
+			[
 				"data",
 				"data-transition"
 			],
@@ -99,7 +115,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 9716,
+				"buffer_size": 9402,
 				"line_ending": "Unix"
 			}
 		},
@@ -107,15 +123,7 @@
 			"file": "css/style.css",
 			"settings":
 			{
-				"buffer_size": 1688,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "config.xml",
-			"settings":
-			{
-				"buffer_size": 3335,
+				"buffer_size": 2484,
 				"line_ending": "Unix"
 			}
 		},
@@ -123,8 +131,17 @@
 			"file": "main.js",
 			"settings":
 			{
-				"buffer_size": 12228,
+				"buffer_size": 13211,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Link Twitter, Facebook, Google+\nHeader of events, randomize\nEvents Facebook integration, comments on the wall\nLink to Google maps\nPrice to Events\nDonde:",
+			"settings":
+			{
+				"buffer_size": 152,
+				"line_ending": "Unix",
+				"name": "Link Twitter, Facebook, Google+"
 			}
 		},
 		{
@@ -140,6 +157,14 @@
 			"settings":
 			{
 				"buffer_size": 66036,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "jquery.mobile-1.1.1.min.js",
+			"settings":
+			{
+				"buffer_size": 93209,
 				"line_ending": "Unix"
 			}
 		}
@@ -188,6 +213,8 @@
 	},
 	"file_history":
 	[
+		"/Users/lurraca/Desktop/projects/mbs/mastercard-iphone/www/config.xml",
+		"/Users/lurraca/Documents/FacebookSDK/Samples/HelloFacebookSample/HelloFacebookSample/HFAppDelegate.h",
 		"/Users/lurraca/Desktop/projects/mbs/mastercard-iphone/www/cordova-2.0.0.js"
 	],
 	"find":
@@ -206,6 +233,24 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"console",
+			"alert",
+			"refresh",
+			"bizDtlBe",
+			"none",
+			"transition",
+			"trans",
+			"slide",
+			"none",
+			"pop",
+			"slide",
+			"ben",
+			"flip",
+			"});\n",
+			"flip",
+			"<li><a data-theme=\"c\" class=\"categories-link\" href=\"#categories\">Categorias</a></li>",
+			"<li><a data-theme=\"c\" class=\"platinum-benefits-link\" href=\"#platinum-benefits\">Ofertas</a></li>",
+			"<li><a data-theme=\"c\" class=\"platinum-benefits-link\" href=\"#platinum-benefits\">Ofertas</a></l",
 			"pop",
 			"po",
 			"pop",
@@ -251,6 +296,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"<li><a data-theme=\"c\" class=\"categories-link\" href=\"#categories\">Ofertas por Categorias</a></li>",
+			"",
 			"flip",
 			"pop",
 			"slide",
@@ -266,7 +313,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -274,15 +321,15 @@
 					"file": "index.html",
 					"settings":
 					{
-						"buffer_size": 9716,
+						"buffer_size": 9402,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								940,
-								940
+								7724,
+								7724
 							]
 						],
 						"settings":
@@ -292,7 +339,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 769.0,
+						"translation.y": 2012.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -302,15 +349,15 @@
 					"file": "css/style.css",
 					"settings":
 					{
-						"buffer_size": 1688,
+						"buffer_size": 2484,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1555,
-								1555
+								1744,
+								1744
 							]
 						],
 						"settings":
@@ -319,53 +366,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 775.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "config.xml",
-					"settings":
-					{
-						"buffer_size": 3335,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2942,
-								2942
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/XML/XML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "main.js",
 					"settings":
 					{
-						"buffer_size": 12228,
+						"buffer_size": 13211,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								12228,
-								12228
+								10936,
+								10936
 							]
 						],
 						"settings":
@@ -374,7 +393,33 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3884.0,
+						"translation.y": 716.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"settings":
+					{
+						"buffer_size": 152,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								145,
+								145
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Link Twitter, Facebook, Google+",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -427,6 +472,32 @@
 							"syntax": "Packages/CSS/CSS.tmLanguage"
 						},
 						"translation.x": 46428.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "jquery.mobile-1.1.1.min.js",
+					"settings":
+					{
+						"buffer_size": 93209,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9012,
+								9016
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 1057.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
@@ -495,6 +566,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 365.0,
+	"side_bar_width": 336.0,
 	"status_bar_visible": true
 }
