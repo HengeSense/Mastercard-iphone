@@ -6,7 +6,7 @@
     <name>MasterCard Beneficios</name>
 
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+	    Aplicacion con el fin de que los clientes de Mastercard Black/Platinum puedan obtener informacion de los beneficios de pagar con su tarjeta de credito.    
     </description>
 
     <author href="http://www.mbs.com.do" email="info@mbs.com.do">
