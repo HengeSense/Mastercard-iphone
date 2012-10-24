@@ -3,19 +3,17 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "io.cordova.hello-cordova"
         version   = "2.0.0">
-    <name>Hello Cordova</name>
+    <name>MasterCard Beneficios</name>
 
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>
 
-    <author href="http://cordova.io" email="callback-dev@incubator.apache.org">
-        Apache Cordova Team
+    <author href="http://www.mbs.com.do" email="info@mbs.com.do">
+        Mobile Business Solutions
     </author>
 
     <icon src="res/icon/icon.png"        width="512" height="512" />
-    <icon src="res/icon/cordova_android_96.png" width="96"  height="96"  gap:platform="android" />
-    <icon src="res/icon/cordova_bb_80.png"      width="80"  height="80"  gap:platform="blackberry" />
     <icon src="res/icon/icon.png"    width="144" height="144" gap:platform="ios" />
 
     <gap:splash src="res/screen/android_hdpi_landscape.png"      width="800"  height="480"  gap:platform="android" />
